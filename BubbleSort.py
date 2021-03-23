@@ -1,8 +1,9 @@
 import array
 
-class SelectionSort:
+
+class BubbleSort:
     def __init__(self, arr, leng, algInt):
-        self.name = "Selection Sort"
+        self.name = "Bubble Sort"
         self.algType = algInt
         self.array = arr
         self.length = leng
@@ -17,19 +18,14 @@ class SelectionSort:
             return False
         self.comparisons += 1
 
-        curMin = self.curI
-        for j in range(self.curI + 1, self.length):
+        for j in range(self.length - 1):
+            if self.array[j] > self.array[j + 1]:
+                temp = self.array[j + 1]
+                self.array[j + 1] = self.array[j]
+                self.array[j] = temp
+                self.swapCount += 2
             self.comparisons += 1
-            if self.array[j] < self.array[curMin]:
-                curMin = j
 
-        if curMin != self.curI:
-            temp = self.array[curMin]
-            self.array[curMin] = self.array[self.curI]
-            self.array[self.curI] = temp
-            self.swapCount += 2
-
-        self.comparisons += 1
         self.curI += 1
         return True
 
