@@ -1,6 +1,7 @@
 from time import sleep, perf_counter, perf_counter_ns
 from SelectionSort import *
 from BubbleSort import *
+from InsertionSort import *
 import pygame
 from pygame.locals import *
 import os
@@ -21,10 +22,13 @@ class ArrayDisplay:
         self.length = len(arr)
 
         if sortNum == 0:
-            self.curSort = SelectionSort(self.array, self.length, 1)
+            self.curSort = SelectionSort(self.array)
 
         elif sortNum == 1:
-            self.curSort = BubbleSort(self.array, self.length, 1)  # fix for other sort
+            self.curSort = BubbleSort(self.array)  # fix for other sort
+
+        elif sortNum == 2:
+            self.curSort = InsertionSort(self.array)
 
         self.width = self.length * 3
         self.height = 800

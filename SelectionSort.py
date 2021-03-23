@@ -1,11 +1,10 @@
 import array
 
 class SelectionSort:
-    def __init__(self, arr, leng, algInt):
+    def __init__(self, arr):
         self.name = "Selection Sort"
-        self.algType = algInt
         self.array = arr
-        self.length = leng
+        self.length = len(arr)
         self.curI = 0
         self.swapCount = 0
         self.comparisons = 0
@@ -24,14 +23,18 @@ class SelectionSort:
                 curMin = j
 
         if curMin != self.curI:
-            temp = self.array[curMin]
-            self.array[curMin] = self.array[self.curI]
-            self.array[self.curI] = temp
+            self.swap(self.curI, curMin)
             self.swapCount += 2
 
         self.comparisons += 1
         self.curI += 1
         return True
+
+    def swap(self, one, two):
+        temp = self.array[two]
+        self.array[two] = self.array[one]
+        self.array[one] = temp
+        self.swapCount += 1
 
     def getArray(self):
         return self.array

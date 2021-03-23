@@ -2,11 +2,10 @@ import array
 
 
 class BubbleSort:
-    def __init__(self, arr, leng, algInt):
+    def __init__(self, arr):
         self.name = "Bubble Sort"
-        self.algType = algInt
         self.array = arr
-        self.length = leng
+        self.length = len(arr)
         self.curI = 0
         self.swapCount = 0
         self.comparisons = 0
@@ -20,14 +19,17 @@ class BubbleSort:
 
         for j in range(self.length - 1):
             if self.array[j] > self.array[j + 1]:
-                temp = self.array[j + 1]
-                self.array[j + 1] = self.array[j]
-                self.array[j] = temp
-                self.swapCount += 2
+                self.swap(j, j+1)
             self.comparisons += 1
 
         self.curI += 1
         return True
+
+    def swap(self, one, two):
+        temp = self.array[two]
+        self.array[two] = self.array[one]
+        self.array[one] = temp
+        self.swapCount += 1
 
     def getArray(self):
         return self.array
