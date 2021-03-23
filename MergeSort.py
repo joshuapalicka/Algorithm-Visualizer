@@ -10,6 +10,18 @@ class InsertionSort:
         self.totalTimeSorting = 0
 
     def update(self):
+        a = 1
+
+    def mergeSort(self, arr, l, r):
+        if l >= r:
+            return
+
+        m = l + (r - 1 / 2) # find middle element
+        self.mergeSort(arr, l, m)
+        self.mergeSort(arr, m+1, r)
+        self.mergeArrays(arr, l, m, r)
+
+    def mergeArrays(self, arr, l, m, r):
 
 
     def swap(self, one, two):
